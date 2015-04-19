@@ -1,0 +1,75 @@
+//
+// Prefix header for all source files of the 'Findy' target in the 'Findy' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Accounts/Accounts.h>
+    #import <Social/Social.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import "AppDelegate.h"
+    #import "MenuViewController.h"
+    #import "FindyAPI.h"
+    #import "DataManager.h"
+    #import "ECSlidingViewController.h"
+    #import "SVProgressHUD.h"
+    #import "UserDefine.h"
+    #import "NSDataAdditions.h"
+    #import "ImageResizingUtility.h"
+    #import "Base64.h"
+    #import "NSData-AES.h"
+//    #import "UIImageView+WebCache.h"
+//    #import "UIImage+ImageWithUIView.h"
+    #import "AsyncImageView.h"
+    #import "Flurry.h"
+
+#endif
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define IsNSStringValid(str) (![str isKindOfClass:[NSNull class]] && [str length] && (![[str lowercaseString] isEqualToString:@"(null)"]))
+#define ISNSArrayValid(array) (![array isKindOfClass:[NSNull class]] && [array count])
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#ifdef DEBUG
+#   define ULog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif
+
+#define IS_IPHONE5 ([UIScreen mainScreen].bounds.size.height > 480) ? 1 : 0
+#define IS_RETINA ([UIScreen mainScreen].scale == 2.f) ? TRUE : FALSE
+#define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) ? TRUE : FALSE
+
+#define ECSlidingViewTopNotificationMacro \
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_gotECSlidingViewAnchorRightOrRightrNotification) name:ECSlidingViewTopDidAnchorLeft object:nil]; \
+//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_gotECSlidingViewTopDidResetNotification) name:ECSlidingViewTopDidReset object:nil];
+
+#define ECSlidingViewTopNotificationHandlerMacro \
+- (void)_gotECSlidingViewTopDidResetNotification {\
+[self.view addGestureRecognizer:self.slidingViewController.panGesture];\
+}\
+- (void)_gotECSlidingViewAnchorRightOrRightrNotification {\
+[self.view removeGestureRecognizer:self.slidingViewController.panGesture];\
+}
+
+#define ECSlidingViewAddingLeftAndRightViewToTopViewMacro \
+if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {\
+self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];\
+}\
+[self.view addGestureRecognizer:self.slidingViewController.panGesture];

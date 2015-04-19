@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B0452C10-6405-4C29-98DA-8652182D3ABA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Findy</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1BF437052D5968567EAE27F170DCBD5FAA5E2C8B</key>
+		<string>github.com:powellss/commoncraze.git</string>
+		<key>59E5F6F5-2908-41D7-A06D-2B4CEDDA985D</key>
+		<string>https://github.com/powellss/commoncraze.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Client2/Findy/Findy.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1BF437052D5968567EAE27F170DCBD5FAA5E2C8B</key>
+		<string>../../../..</string>
+		<key>59E5F6F5-2908-41D7-A06D-2B4CEDDA985D</key>
+		<string>../../../../../Project</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:powellss/commoncraze.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1BF437052D5968567EAE27F170DCBD5FAA5E2C8B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1BF437052D5968567EAE27F170DCBD5FAA5E2C8B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>commoncraze</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>59E5F6F5-2908-41D7-A06D-2B4CEDDA985D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Project</string>
+		</dict>
+	</array>
+</dict>
+</plist>
